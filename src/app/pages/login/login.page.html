@@ -1,0 +1,42 @@
+<ion-content>
+  <!-- Título principal de la aplicación, centrado y con padding en la parte superior -->
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <h1>SkeletonApp (Semana Nº2)</h1> <!-- Nombre de la aplicación -->
+      <p>Aquí comienza todo</p> <!-- Subtítulo o descripción breve -->
+    </ion-label>
+  </ion-title>
+
+  <div class="ion-padding-vertical">
+    <!-- Tarjeta que contiene el formulario de inicio de sesión, centrada en la pantalla -->
+    <ion-card class="ion-text-center">
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          <h1>Bienvenido a SkeletonApp</h1> <!-- Mensaje de bienvenida para el usuario -->
+        </ion-label>
+      </ion-card-title>
+      <ion-card-content>
+        <!-- Elemento de entrada para ingresar el nombre de usuario -->
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label> <!-- Etiqueta que aparece en la entrada -->
+          <ion-input type="text" [(ngModel)]="login.Usuario"></ion-input> <!-- Entrada para el nombre de usuario, vinculada a una propiedad del componente -->
+        </ion-item>
+        <!-- Elemento de entrada para ingresar la contraseña -->
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label> <!-- Etiqueta para la contraseña -->
+          <ion-input type="password" [(ngModel)]="login.Password"></ion-input> <!-- Entrada para la contraseña, vinculada a una propiedad del componente -->
+        </ion-item>
+      </ion-card-content>
+      <!-- Botón para realizar la acción de inicio de sesión -->
+      <ion-button shape="block" (click)="IonProgressBar()">Ingresar</ion-button> <!-- Botón que activa la función 'IonProgressBar' al ser clickeado -->
+    </ion-card>
+  </div>
+</ion-content>
+
+<!--footer-->
+<ion-footer class="custom-footer">
+  <p>App desarrollada por Rivaldo Uribe</p>
+</ion-footer>
+
+
+

@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <!-- Encabezado de la página, con fondo translúcido -->
+  <ion-toolbar>
+    <!-- Barra de herramientas del encabezado -->
+    <ion-title>SkeletonApp (Semana Nº2)</ion-title>
+    <!-- Título principal de la aplicación -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+  <!-- Contenido principal de la página, a pantalla completa con padding horizontal -->
+  <ion-title class="ion-padding-top ion-text-center">
+    <!-- Título principal de la sección, centrado con padding superior -->
+    <ion-label>
+      <!-- Etiqueta para el título -->
+      <h1>Bienvenido {{usuario}}</h1>
+      <!-- Título de bienvenida, muestra el nombre de usuario si está disponible -->
+      <p *ngIf="usuario">Usuario: {{usuario}}</p>
+      <!-- Muestra el nombre de usuario si la variable usuario no está vacía -->
+    </ion-label>
+  </ion-title>
+
+  <b class="ion-text-center">
+    <!-- Encabezado de la sección de información adicional -->
+    <h4>Información Adicional</h4>
+  </b>
+
+  <!-- Sección para ingresar el nombre -->
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="floating">Nombre</ion-label>
+    <!-- Etiqueta flotante para el campo de nombre -->
+    <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
+    <!-- Campo de entrada de texto para el nombre -->
+  </ion-item>
+
+  <!-- Sección para ingresar el apellido -->
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="floating">Apellido</ion-label>
+    <!-- Etiqueta flotante para el campo de apellido -->
+    <ion-input type="text" [(ngModel)]="data.apellido"></ion-input>
+    <!-- Campo de entrada de texto para el apellido -->
+  </ion-item>
+
+  <!-- Sección para seleccionar el nivel educativo -->
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="floating">Nivel Educacional</ion-label>
+    <!-- Etiqueta flotante para el selector de educación -->
+    <ion-select [(ngModel)]="data.education">
+      <!-- Selector para el nivel educativo -->
+      <ion-select-option *ngFor="let nivel of niveles" [value]="nivel.id">
+        <!-- Opciones del selector, iterando sobre el array niveles -->
+        {{ nivel.nivel }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Sección para ingresar la fecha de nacimiento -->
+  <ion-item class="ion-padding-horizontal">
+    <ion-label position="floating">Fecha de Nacimiento</ion-label>
+    <!-- Etiqueta flotante para el campo de fecha de nacimiento -->
+    <ion-input type="date" [(ngModel)]="data.nacimiento"></ion-input>
+    <!-- Campo de entrada de tipo fecha para la fecha de nacimiento -->
+  </ion-item>
+
+  <!-- Botones Limpiar y Mostrar -->
+  <ion-grid>
+    <!-- Contenedor para la disposición de los botones -->
+    <ion-row>
+      <!-- Fila para los botones -->
+      <ion-col size="6">
+        <!-- Columna para el botón Limpiar -->
+        <ion-button expand="block" (click)="limpiar()">Limpiar</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <!-- Columna para el botón Mostrar -->
+        <ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mensaje de error, si existe -->
+  <div *ngIf="errorMessage" class="ion-text-center ion-padding">
+    <ion-text color="danger">{{ errorMessage }}</ion-text>
+  </div>
+</ion-content>
+
+<!--footer-->
+<ion-footer class="custom-footer">
+  <p>App desarrollada por Rivaldo Uribe</p>
+</ion-footer>
+
